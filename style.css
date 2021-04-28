@@ -1,6 +1,14 @@
 .botonnegro{
     background-color: black;
+    border: 0px;
 }
+
 #indexbody{
     background-color: black;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'PressStart2P-Regular.ttf','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#bodyjugar{
+    background-color:darkred;
 }
