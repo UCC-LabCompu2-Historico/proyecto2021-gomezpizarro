@@ -4,24 +4,20 @@
 }
 
 #indexbody{
-    background-color: black;
+    
     text-align: center;
     font-size: 20px;
     font-family: 'Press Start 2P', cursive;
 
 }
 body{
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P',cursive;
     color: white;
+    background-color: black;
 }
 a{
     color: brown;
 }
-#bodyjugar{
-    background-color:black;
-}
 #Instrucciones{
-    background-color: black;
-    border-left: 10pc;
-
+    font-family: 'Zen Dots', cursive;
 }
