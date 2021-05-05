@@ -6,9 +6,22 @@
 #indexbody{
     background-color: black;
     text-align: center;
-    font-size: 40px;
-    font-family: 'PressStart2P-Regular.ttf','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+
+}
+body{
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+a{
+    color: brown;
 }
 #bodyjugar{
-    background-color:darkred;
+    background-color:black;
+}
+#Instrucciones{
+    background-color: black;
+    border-left: 10pc;
+
 }
