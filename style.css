@@ -2,22 +2,42 @@
     background-color: black;
     border: 0px;
 }
-
-#indexbody{
-    
-    text-align: center;
-    font-size: 20px;
-    font-family: 'Press Start 2P', cursive;
-
-}
 body{
     font-family: 'Press Start 2P',cursive;
     color: white;
     background-color: black;
 }
+#indexbody{
+    text-align: center;
+    font-size: 20px;
+}
+#bodyjugar{
+    text-align: center;
+}
 a{
     color: brown;
+    text-decoration: none;
+    padding-left: 2%;   
+    padding-right: 2%;
+    padding-top: 2%;
+}
+a:hover{
+    color: goldenrod;
 }
 #Instrucciones{
     font-family: 'Zen Dots', cursive;
+}
+.caja{
+    padding-top: 2%;
+    padding-left: 25%;
+    padding-right: 25%;
+    text-align: center;
+    font-size: 20px;
+    width: 50%;
+}
+ul{
+    text-align: left;
+}
+#a_jugar{
+
 }
