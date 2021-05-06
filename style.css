@@ -44,11 +44,12 @@ footer{
     font-size: 25px;
 }
 input{
-    width: 100px;
-    font-size: 5 px;
+    width: 120px;
+    height: 40px;
+    font-size: 25 px;
     background-color:brown;
     border: 0ch;
-    color: white;
+    color: goldenrod;
     font-family:'Press Start 2P',cursive  ;
 }
 #botonmaquina{
@@ -60,4 +61,17 @@ input{
 }
 #botonmaquina:hover{
     color: goldenrod;
+}
+.endgame{
+    padding: 2%;
+    padding-bottom: 99%;
+    font-size: 30px;
+}
+#wiin{
+    padding-top: 30%;
+    width: 500px;
+    height: 350px;
+}
+#looser{
+    padding-top: 30%;
 }
