@@ -1,6 +1,18 @@
 # proyecto2021
 Estructura de Proyecto Lab de Compu II - 2021
 
+## Autor
+* Gonzalo Gómez Pizarro.
+
+## Contenido / Descripcion del proyecto
+
+* **Titulo del Proyecto:** Juego de Números.
+* **Tecnologias usadas:** HTML, CSS y JAVASCRIPT
+* **Contenido de la pagina:** La página contiene un juego de un solo jugador contra la máquina...
+* **Link para abrir las paginas (gh-pages):** [PAGINA PRINCIPAL](), [PAGINA DEL JUEGO](), [LOOSING PAGE]() y [WINNING PAGE]() (con el uso de javascript haremos la conexcion entre las paginas mostradas, por por el momento como el codigo no esta desarrollado, linkeamos algunas paginas, a traves de las cuales se puede llegar a todas las otras)
+
+
+
 ### Requisitos del Primer Parcial
 - [ ] El proyecto debe estar subido al repositorio adecuado "Proyecto2021-ApellidoAlumno1-ApellidoAlumno2"
 - [ ] La página principal debe llamarse index
