@@ -1,8 +1,19 @@
-.botonnegro{
+#botonnegro{
     background-color: black;
     border: 0px;
+    padding-top: 2%;
 }
-body{
+head{
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+body{ 
+    
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+    
     font-family: 'Press Start 2P','Zen Dots', cursive;
     color: white;
     background-color: black;
@@ -10,6 +21,8 @@ body{
 
 }
 #indexbody{
+    padding-top: 5%;
+    padding-bottom: 15%;
     font-size: 20px;
 }
 a{
@@ -24,6 +37,8 @@ a:hover{
 }
 #Instrucciones{
     font-family: 'Zen Dots', cursive;
+    padding-top: 5%;
+    padding-bottom: 15%;
 }
 .caja{
     padding-top: 2%;
@@ -41,7 +56,9 @@ footer{
     padding-top: 2%;
 }
 .jugarrr{
-    font-size: 25px;
+    font-size: 20px;
+    padding-top: 10%;
+    padding-bottom: 30% ;
 }
 input{
     width: 120px;
@@ -74,4 +91,20 @@ input{
 }
 #looser{
     padding-top: 30%;
+}
+#juegodenumeros{
+    padding-top: 2%;
+}
+#A1{
+    padding-top: 2%;
+}
+#J1{
+    padding-top: 2%; 
+    padding-bottom: 2%;
+}
+#L1{
+    padding-top: 2%; padding-bottom: 2%;
+}
+#L2{
+    padding-bottom: 2%;
 }
