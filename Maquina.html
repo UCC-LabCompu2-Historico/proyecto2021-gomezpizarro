@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset='utf-8'>
         <meta content="Gonzalo Gómez Pizarro" name="Author">
         <meta content="Numeros, juego, ..." name="keywords">
         <meta name="descripcion" content="playing page">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css" type="text/css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         </style>
@@ -20,7 +20,10 @@
         <p id="L2"><label for="num_maquina">Numero</label>
         <input type="number" id="num_maquina" min="" max="" maxlength="4" minlength="4">
         <button id="botonmaquina">OK</button></p>
-        <textarea  id="Comentarios" cols="100" rows="15" placeholder="Comentarios..."></textarea>
+        <!-- En el canvas ira quedando el resgistro del juego y de los numeros que ira intentando adivinar el jugador -->
+        <canvas id="comentarios" width="300" height="200">
+            El navegador no soporta canvas
+        </canvas>
         </form>
     </body>
     <footer>
