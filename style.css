@@ -1,9 +1,9 @@
-#botonnegro{
-    background-color: black;
-    border: 0px;
-    padding-top: 2%;
+#start{
+    padding-top: 3%;
 }
-
+#loadingg{
+    background-image: url("Imagenes/LOADING.gif");
+}
 body{ 
     font-family: 'Press Start 2P','Zen Dots', cursive;
     color: white;
