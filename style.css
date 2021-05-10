@@ -3,10 +3,6 @@
     border: 0px;
     padding-top: 2%;
 }
-head{
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
-}
 
 body{ 
     font-family: 'Press Start 2P','Zen Dots', cursive;
