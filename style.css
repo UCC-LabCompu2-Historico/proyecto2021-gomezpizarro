@@ -7,18 +7,12 @@ head{
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 }
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
 body{ 
-    
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
-    
     font-family: 'Press Start 2P','Zen Dots', cursive;
     color: white;
     background-color: black;
     text-align: center;
-
 }
 #indexbody{
     padding-top: 5%;
@@ -36,7 +30,7 @@ a:hover{
     color: goldenrod;
 }
 #Instrucciones{
-    font-family: 'Zen Dots', cursive;
+    font-family: 'Zen Dots','Press Start 2P', cursive;
     padding-top: 5%;
     padding-bottom: 15%;
 }
@@ -67,14 +61,14 @@ input{
     background-color:brown;
     border: 0ch;
     color: goldenrod;
-    font-family:'Press Start 2P',cursive  ;
+    font-family:'Press Start 2P','Zen Dots',cursive  ;
 }
 #botonmaquina{
     background-color: black;
     border: 0ch;
     color: brown;
     font-size: 20px;
-    font-family: 'Press Start 2P',cursive  ;
+    font-family: 'Press Start 2P','Zen Dots',cursive  ;
 }
 #botonmaquina:hover{
     color: goldenrod;
