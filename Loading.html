@@ -5,10 +5,13 @@
         <meta content="Gonzalo Gómez Pizarro" name="Author">
         <meta content="Numeros, juego, ..." name="keywords">
         <meta name="descripcion" content="loading page">
-        <link rel="stylesheet" href="style.css" type="text/css">
         <title> Juego de numeros / Loading </title>
     </head>
-    <body id="loadingg">
-        <a id="A_jugar" href="Jugador.html"></a>
+    <body background="Imagenes/LOADING.gif">
     </body>
-</html>
+    <script>
+        setTimeout( function abrirventana () {
+            window.open('https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/Jugador.html','_self');
+        },7500);
+    </script>
+</html> 

@@ -1,9 +1,6 @@
 #start{
     padding-top: 3%;
 }
-#loadingg{
-    background-image: url("Imagenes/LOADING.gif");
-}
 body{ 
     font-family: 'Press Start 2P','Zen Dots', cursive;
     color: white;
@@ -39,9 +36,15 @@ a:hover{
 ul{
     text-align: left;
 }
-/* #a_jugar{
-
-} */
+#Ajugar{
+    border: 0%;
+    color: black;
+    border-color: black;
+    font-size: 0%;
+    width:0%;
+    height: 0%;
+    
+} 
 footer{
     padding-top: 2%;
 }
