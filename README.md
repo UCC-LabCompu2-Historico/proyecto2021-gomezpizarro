@@ -9,7 +9,7 @@ Estructura de Proyecto Lab de Compu II - 2021
 * **Titulo del Proyecto:** Juego de Números.
 * **Tecnologias usadas:** HTML, CSS y JAVASCRIPT
 * **Contenido de la pagina:** La página contiene un juego de un solo jugador contra la máquina...
-* **Link para abrir las paginas (gh-pages):** [PAGINA PRINCIPAL](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/), [PAGINA DEL JUEGO](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/Jugador.html), [LOOSING PAGE](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/gameover.html) y [WINNING PAGE](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/you%20win.html) (con el uso de javascript haremos la conexión entre las paginas mostradas, por por el momento como el codigo no esta desarrollado, linkeamos algunas paginas, a traves de las cuales se puede llegar a todas las otras)
+* **Link para abrir las paginas (gh-pages):** [PAGINA PRINCIPAL](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/), [LOOSING PAGE](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/gameover.html) y [WINNING PAGE](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/you%20win.html) (con el uso de javascript haremos la conexión entre las paginas mostradas, por por el momento como el codigo no esta desarrollado, linkeamos algunas paginas, a traves de las cuales se puede llegar a todas las otras)
 * [Link al mockup](https://app.uizard.io/p/qicZe4Dwx)
 
 
