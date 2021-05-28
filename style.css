@@ -1,6 +1,10 @@
 #start{
     padding-top: 3%;
 }
+.cargar{
+    background-image: url(Imagenes/LOADING.gif);
+    /* no usocover por que pierde calidad la imagen y por que queda mejor repetido */
+}
 body{ 
     font-family: 'Press Start 2P','Zen Dots', cursive;
     color: white;
