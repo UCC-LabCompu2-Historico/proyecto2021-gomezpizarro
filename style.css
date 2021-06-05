@@ -40,15 +40,6 @@ a:hover{
 ul{
     text-align: left;
 }
-#Ajugar{
-    border: 0%;
-    color: black;
-    border-color: black;
-    font-size: 0%;
-    width:0%;
-    height: 0%;
-    
-} 
 footer{
     padding-top: 2%;
 }
@@ -60,21 +51,11 @@ footer{
 input{
     width: 120px;
     height: 40px;
-    font-size: 25 px;
+    font-size: 25px;
     background-color:brown;
-    border: 0ch;
+    border-color: black;
     color: goldenrod;
     font-family:'Press Start 2P','Zen Dots',cursive  ;
-}
-#botonmaquina{
-    background-color: black;
-    border: 0ch;
-    color: brown;
-    font-size: 20px;
-    font-family: 'Press Start 2P','Zen Dots',cursive  ;
-}
-#botonmaquina:hover{
-    color: goldenrod;
 }
 .endgame{
     padding: 2%;
@@ -104,4 +85,24 @@ input{
 }
 #L2{
     padding-bottom: 2%;
+}
+#div2{
+    display: none;
+}
+#div3{
+    display: none;
+}
+.OK{
+    color: brown;
+    text-decoration: none;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    background-color: black;
+    border: 0px;
+    font-size: 20px;
+    font-family: 'Press Start 2P','Zen Dots',cursive ;
+}
+.OK:hover{
+    color: goldenrod;
 }
