@@ -86,10 +86,7 @@ input{
 #L2{
     padding-bottom: 2%;
 }
-#div2{
-    display: none;
-}
-#div3{
+.oculto{
     display: none;
 }
 .OK{

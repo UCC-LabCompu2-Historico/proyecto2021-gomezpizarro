@@ -23,9 +23,9 @@ function congelar (segundos) { //anda correctamente
     while (new Date().getTime() < tiempo.getTime()) {
     }
 }
+let jugador = new numero(0,0,0,0);
 function obtener_num_jugador(id) { //NO anda correctamente
     let num = document.getElementById(id).value;
-    let jugador = new numero(0,0,0,0);
     let control = 0;
     num = parseInt(num);
     if (num > 9999 || num < 1000){ //entra pero no ejecuta el contenido
@@ -45,9 +45,11 @@ function obtener_num_jugador(id) { //NO anda correctamente
         aux4=num[3];
         if ( aux1==aux2 || aux1==aux3 || aux1==aux4 || aux2==aux3 || aux2==aux4 || aux3==aux4 ){ //entra pero no ejecuta el contenido
             document.getElementById('div1').style.display = 'none';//no funciona
+            document.getElementById("foot").style.display = 'none';//no funciona
             document.getElementById('div3').style.display = 'block';//no funciona
             congelar(5);//no funciona
             document.getElementById('div1').style.display = 'block';//no funciona
+            document.getElementById("foot").style.display = 'block';//no funciona
             document.getElementById('div3').style.display = 'none';//no funciona
         }else{
             jugador.num1 = parseInt(aux1);
@@ -58,9 +60,9 @@ function obtener_num_jugador(id) { //NO anda correctamente
         }
     }
     let aux = jugador.completo();
-    alert(aux);
-    alert(control);
+    alert(aux);// a modo de control, despues lo saco
     if (control==1){
+        alert(control);// a modo de control, despues lo saco
         window.open('Maquina.html','_self'); //no funciona
     }
 }
@@ -89,5 +91,48 @@ function mostrarNum(){  // esta funcion es solo para corrobar que anda, luego la
     let auxiliar = computadora.completo();
     alert (auxiliar);
 }
+//una vez que tengamos ambos numeros guardados, ahora tenemo que crear el algoritmo para que la maquina adivine el numero
+//tambien tenemos que obtener el intento de adivinacion del jugador
 
+let intento_jugador = new numero(0,0,0,0);
+let intentos = 0;
+function obtener_num_intento_jugador(id) { //NO anda correctamente
+    let num = document.getElementById(id).value;
+    let control = 0;
+    num = parseInt(num);
+    if (num > 9999 || num < 1000){ //entra pero no ejecuta el contenido
+        document.getElementById('Mdiv1').style.display = 'none';//no funciona
+        document.getElementById('Mdiv2').style.display = 'block';//no funciona
+        congelar(5);//no funciona
+        document.getElementById('Mdiv1').style.display = 'block';//no funciona
+        document.getElementById('Mdiv2').style.display = 'none';//no funciona
+    }else{
+        num=num.toString();
+        let aux1,aux2,aux3,aux4;
+        aux1=num[0];
+        aux2=num[1];
+        aux3=num[2];
+        aux4=num[3];
+        if ( aux1==aux2 || aux1==aux3 || aux1==aux4 || aux2==aux3 || aux2==aux4 || aux3==aux4 ){ //entra pero no ejecuta el contenido
+            document.getElementById('Mdiv1').style.display = 'none';//no funciona
+            document.getElementById('Mdiv3').style.display = 'block';//no funciona
+            congelar(5);//no funciona
+            document.getElementById('Mdiv1').style.display = 'block';//no funciona
+            document.getElementById('Mdiv3').style.display = 'none';//no funciona
+        }else{
+            jugador.num1 = parseInt(aux1);
+            jugador.num2 = parseInt(aux2);
+            jugador.num3 = parseInt(aux3);
+            jugador.num4 = parseInt(aux4);
+            control++;
+        }
+    }
+    let aux = jugador.completo();
+    alert(aux);
+    alert(control);
+    if (control==1){
+        document.getElementById('Mdiv1').style.display = 'none';//no funciona
+        document.getElementById('Mdiv4').style.display = 'block';//no funciona
+    }
+}
 
