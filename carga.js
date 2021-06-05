@@ -5,6 +5,6 @@ function abrirweb (){
 }
 
 async function  esperar (){
-    setTimeout(abrirweb,7995);
+    setTimeout(abrirweb,7500);
 }
 
