@@ -106,6 +106,6 @@ input{
 canvas{
     background-color: darkgoldenrod;
 }
-#pregunta{
+.pregunta{
     padding-bottom: 2%;
 }

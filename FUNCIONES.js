@@ -21,53 +21,8 @@ function congelar (segundos) { //anda correctamente
     while (new Date().getTime() < tiempo.getTime()) {
     }
 }
-let jugador = new numero(0,0,0,0);
-function obtener_num_jugador(id) { //NO anda correctamente
-    let num = document.getElementById(id).value;
-    let control = 0;
-    num = parseInt(num);
-    if (num > 9999 || num < 1000){ //entra pero no ejecuta el contenido
-        document.getElementById('div1').style.display = 'none';//no funciona
-        document.getElementById("foot").style.display = 'none';//no funciona
-        document.getElementById('div2').style.display = 'block';//no funciona
-        congelar(4);//no funciona
-        document.getElementById('div1').style.display = 'block';//no funciona
-        document.getElementById("foot").style.display = 'block';//no funciona
-        document.getElementById('div2').style.display = 'none';//no funciona
-    }else{
-        num=num.toString();
-        let aux1,aux2,aux3,aux4;
-        aux1=num[0];
-        aux2=num[1];
-        aux3=num[2];
-        aux4=num[3];
-        if ( aux1==aux2 || aux1==aux3 || aux1==aux4 || aux2==aux3 || aux2==aux4 || aux3==aux4 ){ //entra pero no ejecuta el contenido
-            document.getElementById('div1').style.display = 'none';//no funciona
-            document.getElementById("foot").style.display = 'none';//no funciona
-            document.getElementById('div3').style.display = 'block';//no funciona
-            congelar(4);//no funciona
-            document.getElementById('div1').style.display = 'block';//no funciona
-            document.getElementById("foot").style.display = 'block';//no funciona
-            document.getElementById('div3').style.display = 'none';//no funciona
-        }else{
-            jugador.num1 = parseInt(aux1);
-            jugador.num2 = parseInt(aux2);
-            jugador.num3 = parseInt(aux3);
-            jugador.num4 = parseInt(aux4);
-            control++;
-        }
-    }
-    let aux = jugador.completo();
-    alert(aux);// a modo de control, despues lo saco
-    if (control==1){
-        alert(control);// a modo de control, despues lo saco
-        document.getElementById('div1').style.display = 'none';//no funciona
-        document.getElementById('div4').style.display = 'block';//no funciona
-    }
-}
-//obtuvimos el numero del jugador
-//ahora creamos el numero de la maquina
-let aux
+// creamos el numero de la maquina
+let aux;
 let computadora = new numero(0,0,0,0);
 computadora.num1=random(1,9);
 aux= random(0,9);
@@ -84,62 +39,119 @@ aux=random(0,9);
 while (aux==computadora.num1 || aux==computadora.num2 || aux==computadora.num3){
     aux=random(0,9);
 }
+computadora.num4 = aux;
 //numero de la computadora creado;
-function mostrarNum(){  // esta funcion es solo para corrobar que anda, luego la eliminare
+function mostrarNum(){  // esta funcion es solo para comprobar que anda, luego la eliminare
     let auxiliar = computadora.completo();
     alert (auxiliar);
 }
-//una vez que tengamos ambos numeros guardados, ahora tenemo que crear el algoritmo para que la maquina adivine el numero
+// ahora tenemos que crear el algoritmo para que la maquina adivine el numero
 //tambien tenemos que obtener el intento de adivinacion del jugador
 
 let intento_jugador = new numero(0,0,0,0);
+let intento_maquina = new numero(0,0,0,0);
+
+
+intento_maquina.num1=random(1,9);
+aux = random(0,9);
+while (aux == intento_maquina.num1){
+    aux=random(0,9);
+}
+intento_maquina.num2=aux;
+aux=random(0,9);
+while (aux==intento_maquina.num1 || aux==intento_maquina.num2){
+    aux=random(0,9);
+}
+intento_maquina.num3=aux;
+aux=random(0,9);
+while (aux==intento_maquina.num1 || aux==intento_maquina.num2 || aux==intento_maquina.num3){
+    aux=random(0,9);
+}
+intento_maquina.num4 = aux;
+
 let intentos = 0;
+let canvas;
 function obtener_num_intento_jugador(id) { //NO anda correctamente
     let num = document.getElementById(id).value;
+    num=num.toString();// para controlar que el numero haya entrado como string
     let control = 0;
-    let canvas = document.getElementById('comentarios').getContext('2d');
-    let ctx = canvas.getContext('2d');
-    ctx.fillStyle = "#cd3838";
-    ctx.fillRect(10,10,100,50);
-    num = parseInt(num);
-    if (num > 9999 || num < 1000){ //entra pero no ejecuta el contenido
-        document.getElementById('div4').style.display = 'none';//no funciona
+    canvas = document.getElementById('comentarios').getContext('2d');
+    alert(num.length);//por control, despues lo saco
+    if ( num.length != 4){ //entra pero no ejecuta el contenido
+        alert(num.length);//por control, despues lo saco
+        document.getElementById('div1').style.display = 'none';//no funciona
         document.getElementById("foot").style.display = 'none';//no funciona
         document.getElementById('div2').style.display = 'block';//no funciona
         congelar(4);//no funciona
-        document.getElementById('div4').style.display = 'block';//no funciona
+        document.getElementById('div1').style.display = 'block';//no funciona
         document.getElementById("foot").style.display = 'block';//no funciona
         document.getElementById('div2').style.display = 'none';//no funciona
     }else{
-        num=num.toString();
         let aux1,aux2,aux3,aux4;
         aux1=num[0];
         aux2=num[1];
         aux3=num[2];
         aux4=num[3];
         if ( aux1==aux2 || aux1==aux3 || aux1==aux4 || aux2==aux3 || aux2==aux4 || aux3==aux4 ){ //entra pero no ejecuta el contenido
-            document.getElementById('div4').style.display = 'none';//no funciona
+            document.getElementById('div1').style.display = 'none';//no funciona
             document.getElementById("foot").style.display = 'none';//no funciona
             document.getElementById('div3').style.display = 'block';//no funciona
             congelar(4);//no funciona
-            document.getElementById('div4').style.display = 'block';//no funciona
+            document.getElementById('div1').style.display = 'block';//no funciona
             document.getElementById("foot").style.display = 'block';//no funciona
             document.getElementById('div3').style.display = 'none';//no funciona
         }else{
-            jugador.num1 = parseInt(aux1);
-            jugador.num2 = parseInt(aux2);
-            jugador.num3 = parseInt(aux3);
-            jugador.num4 = parseInt(aux4);
+            intento_jugador.num1 = parseInt(aux1);
+            intento_jugador.num2 = parseInt(aux2);
+            intento_jugador.num3 = parseInt(aux3);
+            intento_jugador.num4 = parseInt(aux4);
             control++;
+            let aux = intento_jugador.completo();// a modo de control, despues lo saco
+            alert(aux);// a modo de control, despues lo saco
         }
     }
-    let aux = jugador.completo();// a modo de control, despues lo saco
-    alert(aux);// a modo de control, despues lo saco
     if (control==1){
+        intentos++;
         alert(control);// a modo de control, despues lo saco
-        document.getElementById('div4').style.display = 'none';//no funciona
-        document.getElementById('div5').style.display = 'block';//no funciona
-
+        document.getElementById('div1').style.display = 'none';//no funciona
+        document.getElementById('div4').style.display = 'block';//no funciona
+        congelar(3);
+        if (intento_jugador.completo() == computadora.completo()){
+            window.open('you win.html','_self');
+        }else{
+            let bien = 0,regular = 0;
+            document.getElementById('canvas').style.display= 'block';
+            if(intento_jugador.num1 == computadora.num1)bien++;
+            if(intento_jugador.num2 == computadora.num2)bien++;
+            if(intento_jugador.num3 == computadora.num3)bien++;
+            if(intento_jugador.num4 == computadora.num4)bien++;
+            if(intento_jugador.num1 == computadora.num2 || intento_jugador.num1 == computadora.num3 || intento_jugador.num1 == computadora.num4)regular++;
+            if(intento_jugador.num2 == computadora.num1 || intento_jugador.num2 == computadora.num3 || intento_jugador.num2 == computadora.num4)regular++;
+            if(intento_jugador.num3 == computadora.num1 || intento_jugador.num3 == computadora.num2 || intento_jugador.num3 == computadora.num4)regular++;
+            if(intento_jugador.num4 == computadora.num1 || intento_jugador.num4 == computadora.num2 || intento_jugador.num4 == computadora.num3)regular++;
+            let texto = "Intento " + intentos.toString() + "= " + intento_jugador.completo() + ": Tiene " + bien.toString() + " Bien y " + regular.toString() + " Regular. Sigue probando...";
+            canvas.fillText(texto,40,30+(30*intentos));
+        }
+        //ahora la maquina intenta adivinar el numero
+        document.getElementById('div4').style.display = 'none';
+        document.getElementById('div5').style.display = 'block';
+        canvas = document.getElementById('adivinacionMaquina').getContext('2d');
+        canvas.fillText(intento_maquina.completo(),25,10);
     }
+}
+function SII (){
+    window.open('gameover.html','_self');
+}
+function NOO (){
+    document.getElementById('div5').style.display = 'none';
+    document.getElementById('div6').style.display = 'block';
+
+}
+function REGULAR_BIEN(){
+    document.getElementById('div6').style.display = 'none';
+    let bien = document.getElementById('BIEN').value;
+    let regular = document.getElementById('REGULAR').value;
+    // aca va el algoritmo que hace que la maquina adivine el numero en base a los bien y a los regular
+    document.getElementById('div1').style.display = 'block';
 }
 
