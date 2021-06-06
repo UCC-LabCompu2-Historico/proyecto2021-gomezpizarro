@@ -1,4 +1,3 @@
-// no contiene nada aun...
 
 class numero {//anda correctamente
     constructor (num1,num2,num3,num4){
@@ -13,7 +12,6 @@ class numero {//anda correctamente
 }
 function random (min, max){ //anda correctamente
     const num =  Math.floor((Math.random() * (max - min + 1)) + min);
-
     return (Math.round(num));
 }
 function congelar (segundos) { //anda correctamente
@@ -32,7 +30,7 @@ function obtener_num_jugador(id) { //NO anda correctamente
         document.getElementById('div1').style.display = 'none';//no funciona
         document.getElementById("foot").style.display = 'none';//no funciona
         document.getElementById('div2').style.display = 'block';//no funciona
-        congelar(5);//no funciona
+        congelar(4);//no funciona
         document.getElementById('div1').style.display = 'block';//no funciona
         document.getElementById("foot").style.display = 'block';//no funciona
         document.getElementById('div2').style.display = 'none';//no funciona
@@ -47,7 +45,7 @@ function obtener_num_jugador(id) { //NO anda correctamente
             document.getElementById('div1').style.display = 'none';//no funciona
             document.getElementById("foot").style.display = 'none';//no funciona
             document.getElementById('div3').style.display = 'block';//no funciona
-            congelar(5);//no funciona
+            congelar(4);//no funciona
             document.getElementById('div1').style.display = 'block';//no funciona
             document.getElementById("foot").style.display = 'block';//no funciona
             document.getElementById('div3').style.display = 'none';//no funciona
@@ -63,10 +61,10 @@ function obtener_num_jugador(id) { //NO anda correctamente
     alert(aux);// a modo de control, despues lo saco
     if (control==1){
         alert(control);// a modo de control, despues lo saco
-        window.open('Maquina.html','_self'); //no funciona
+        document.getElementById('div1').style.display = 'none';//no funciona
+        document.getElementById('div4').style.display = 'block';//no funciona
     }
 }
-
 //obtuvimos el numero del jugador
 //ahora creamos el numero de la maquina
 let aux
@@ -99,13 +97,19 @@ let intentos = 0;
 function obtener_num_intento_jugador(id) { //NO anda correctamente
     let num = document.getElementById(id).value;
     let control = 0;
+    let canvas = document.getElementById('comentarios').getContext('2d');
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = "#cd3838";
+    ctx.fillRect(10,10,100,50);
     num = parseInt(num);
     if (num > 9999 || num < 1000){ //entra pero no ejecuta el contenido
-        document.getElementById('Mdiv1').style.display = 'none';//no funciona
-        document.getElementById('Mdiv2').style.display = 'block';//no funciona
-        congelar(5);//no funciona
-        document.getElementById('Mdiv1').style.display = 'block';//no funciona
-        document.getElementById('Mdiv2').style.display = 'none';//no funciona
+        document.getElementById('div4').style.display = 'none';//no funciona
+        document.getElementById("foot").style.display = 'none';//no funciona
+        document.getElementById('div2').style.display = 'block';//no funciona
+        congelar(4);//no funciona
+        document.getElementById('div4').style.display = 'block';//no funciona
+        document.getElementById("foot").style.display = 'block';//no funciona
+        document.getElementById('div2').style.display = 'none';//no funciona
     }else{
         num=num.toString();
         let aux1,aux2,aux3,aux4;
@@ -114,11 +118,13 @@ function obtener_num_intento_jugador(id) { //NO anda correctamente
         aux3=num[2];
         aux4=num[3];
         if ( aux1==aux2 || aux1==aux3 || aux1==aux4 || aux2==aux3 || aux2==aux4 || aux3==aux4 ){ //entra pero no ejecuta el contenido
-            document.getElementById('Mdiv1').style.display = 'none';//no funciona
-            document.getElementById('Mdiv3').style.display = 'block';//no funciona
-            congelar(5);//no funciona
-            document.getElementById('Mdiv1').style.display = 'block';//no funciona
-            document.getElementById('Mdiv3').style.display = 'none';//no funciona
+            document.getElementById('div4').style.display = 'none';//no funciona
+            document.getElementById("foot").style.display = 'none';//no funciona
+            document.getElementById('div3').style.display = 'block';//no funciona
+            congelar(4);//no funciona
+            document.getElementById('div4').style.display = 'block';//no funciona
+            document.getElementById("foot").style.display = 'block';//no funciona
+            document.getElementById('div3').style.display = 'none';//no funciona
         }else{
             jugador.num1 = parseInt(aux1);
             jugador.num2 = parseInt(aux2);
@@ -127,12 +133,13 @@ function obtener_num_intento_jugador(id) { //NO anda correctamente
             control++;
         }
     }
-    let aux = jugador.completo();
-    alert(aux);
-    alert(control);
+    let aux = jugador.completo();// a modo de control, despues lo saco
+    alert(aux);// a modo de control, despues lo saco
     if (control==1){
-        document.getElementById('Mdiv1').style.display = 'none';//no funciona
-        document.getElementById('Mdiv4').style.display = 'block';//no funciona
+        alert(control);// a modo de control, despues lo saco
+        document.getElementById('div4').style.display = 'none';//no funciona
+        document.getElementById('div5').style.display = 'block';//no funciona
+
     }
 }
 
