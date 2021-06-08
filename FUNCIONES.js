@@ -1,3 +1,4 @@
+const { join } = require("node:path");
 
 class numero {//anda correctamente
     constructor (num1,num2,num3,num4){
@@ -133,15 +134,53 @@ function NOO (){
     document.getElementById('div5').style.display = 'none';
     document.getElementById('div6').style.display = 'block';
 }
-let pistas = [intento_maquina]; // el formato de la lista es  [numero,cantbien,cantmal;x
+let pistas = []; // el formato de la lista es  [numero,cantbien,cantmal;x
 function REGULAR_BIEN(){
     let bien = document.getElementById('BIEN').value;
     let regular = document.getElementById('REGULAR').value;
-    if ()
-    // aca va el algoritmo que hace que la maquina adivine el numero en base a los bien y a los regular
-        
-    document.getElementById('div6').style.display = 'none';
-    document.getElementById('div1').style.display = 'block';
+    let suma = bien + regular;
+    if (suma>4){
+        document.getElementById('div6').style.display = 'none';
+        document.getElementById('div7').style.display = 'block';
+        congelar(4);
+        document.getElementById('div6').style.display = 'block';
+        document.getElementById('div7').style.display = 'none';
+    }
+    else{
+        // aca va el algoritmo que hace que la maquina adivine el numero en base a los bien y a los regular
+        pistas.push([intento_maquina,bien,regular]);
+        for (let i=0 ; i<pistas.length ;i++){
+            if ( bien==0 && regular==0 ){
+                for (let j=0 ; j<5040 ; j++){
+                    if (intento_maquina[0]==lista[j][0] || intento_maquina[0]==lista[j][1] || intento_maquina[0]==lista[j][2] || intento_maquina[0]==lista[j][3]){
+                        if (intento_maquina[1]==lista[j][0] || intento_maquina[1]==lista[j][1] || intento_maquina[1]==lista[j][2] || intento_maquina[1]==lista[j][3]){
+                            if (intento_maquina[2]==lista[j][0] || intento_maquina[2]==lista[j][1] || intento_maquina[2]==lista[j][2] || intento_maquina[2]==lista[j][3]){
+                                if (intento_maquina[3]==lista[j][0] || intento_maquina[3]==lista[j][1] || intento_maquina[3]==lista[j][2] || intento_maquina[3]==lista[j][3]){
+                                    lista.splice(j,1);
+                                }
+                            }
+                        }                    
+                    }
+                }
+            }
+            else{
+                if ( suma==1 ){
+
+                }
+                if ( suma==2 ){
+
+                }
+                if ( suma==3 ){
+                    
+                }
+                if ( suma==4 ){
+                    
+                }
+            }   
+        }
+        document.getElementById('div6').style.display = 'none';
+        document.getElementById('div1').style.display = 'block';
+    }
 }
 
 
