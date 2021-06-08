@@ -21,7 +21,7 @@
             <p id="L1">INTENTE ADIVINAR EL NUMERO DE LA MAQUINA</p>
             <form id="ADIVINAR" target="_self">
                 <p id="L2"><label for="intento_jugador">Numero</label>
-                <input type="text" id="intento_jugador">
+                <input type="number" id="intento_jugador">
                 <button class="OK" onclick="obtener_num_intento_jugador('intento_jugador')" >OK</button></p>
             </form>
         </div>
@@ -50,9 +50,9 @@
             <p class="pregunta">INGRESA LA CANTIDAD DE BIEN Y LA CANTIDAD DE REGULAR</p>
             <form id="Bien_regular" target="_self">
                 <p><label for="BIEN">BIEN</label>
-                    <input type="number" id="BIEN"></p>
+                    <input type="number" id="BIEN" max="4"></p>
                 <p><label for="REGULAR">REGULAR</label>
-                    <input type="number" id="REGULAR"></p>
+                    <input type="number" id="REGULAR" max="4"></p>
                 <p><button class="OK" onclick="REGULAR_BIEN()">OK</button></p>
             </form>
         </div>

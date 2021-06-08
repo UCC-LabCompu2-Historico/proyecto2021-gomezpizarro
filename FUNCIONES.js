@@ -14,6 +14,7 @@ function random (min, max){ //anda correctamente
     const num =  Math.floor((Math.random() * (max - min + 1)) + min);
     return (Math.round(num));
 }
+
 function congelar (segundos) { //anda correctamente
     let tiempo = new Date();
     console.dir(tiempo);
@@ -21,61 +22,46 @@ function congelar (segundos) { //anda correctamente
     while (new Date().getTime() < tiempo.getTime()) {
     }
 }
+function isIsogram (str) {
+    return !/(.).*\1/.test(str);
+}
+//crearemos una lista con todas las posibilidades de numeros de 4 cifras distintas;
+let lista = ["0123"];
+let i=124;
+while (i<10000){
+    i=i.toString();
+    if (i.length == 3) i = '0'+ i;
+    if(!/(.).*\1/.test(i)){
+        lista.push(i);
+    }
+    i=parseInt(i);
+    i++;
+}
+//lista de numeros posibles creada;
+console.log(lista); //para poder ver la lista en la consola
 // creamos el numero de la maquina
-let aux;
-let computadora = new numero(0,0,0,0);
-computadora.num1=random(1,9);
-aux= random(0,9);
-while (aux == computadora.num1){
-    aux=random(0,9);
-}
-computadora.num2=aux;
-aux=random(0,9);
-while (aux==computadora.num1 || aux==computadora.num2){
-    aux=random(0,9);
-}
-computadora.num3=aux;
-aux=random(0,9);
-while (aux==computadora.num1 || aux==computadora.num2 || aux==computadora.num3){
-    aux=random(0,9);
-}
-computadora.num4 = aux;
+let aux = random(0,5039);
+aux = lista[aux];
+let computadora = new numero(aux[0],aux[1],aux[2],aux[3]);
 //numero de la computadora creado;
-function mostrarNum(){  // esta funcion es solo para comprobar que anda, luego la eliminare
-    let auxiliar = computadora.completo();
-    alert (auxiliar);
-}
+console.log(computadora.completo());//para poder ver la lista en la consola
+
 // ahora tenemos que crear el algoritmo para que la maquina adivine el numero
 //tambien tenemos que obtener el intento de adivinacion del jugador
-
+aux = random(0,(2520*2)-1);
+aux = lista[aux];
+let intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]);
+//numero de intento de adivinacion de la computadora creado;
+console.log(intento_maquina.completo());//para poder ver la lista en la consola
 let intento_jugador = new numero(0,0,0,0);
-let intento_maquina = new numero(0,0,0,0);
-
-
-intento_maquina.num1=random(1,9);
-aux = random(0,9);
-while (aux == intento_maquina.num1){
-    aux=random(0,9);
-}
-intento_maquina.num2=aux;
-aux=random(0,9);
-while (aux==intento_maquina.num1 || aux==intento_maquina.num2){
-    aux=random(0,9);
-}
-intento_maquina.num3=aux;
-aux=random(0,9);
-while (aux==intento_maquina.num1 || aux==intento_maquina.num2 || aux==intento_maquina.num3){
-    aux=random(0,9);
-}
-intento_maquina.num4 = aux;
-
 let intentos = 0;
 let canvas;
 function obtener_num_intento_jugador(id) { //NO anda correctamente
     let num = document.getElementById(id).value;
-    num=num.toString();// para controlar que el numero haya entrado como string
+    num=num.toString(); // para poder valuar que sea de 4 cifras
     let control = 0;
-    canvas = document.getElementById('comentarios').getContext('2d');
+    canvas = document.getElementById('comentarios');
+    let ctx = canvas.getContext('2d');
     alert(num.length);//por control, despues lo saco
     if ( num.length != 4){ //entra pero no ejecuta el contenido
         alert(num.length);//por control, despues lo saco
@@ -130,13 +116,14 @@ function obtener_num_intento_jugador(id) { //NO anda correctamente
             if(intento_jugador.num3 == computadora.num1 || intento_jugador.num3 == computadora.num2 || intento_jugador.num3 == computadora.num4)regular++;
             if(intento_jugador.num4 == computadora.num1 || intento_jugador.num4 == computadora.num2 || intento_jugador.num4 == computadora.num3)regular++;
             let texto = "Intento " + intentos.toString() + "= " + intento_jugador.completo() + ": Tiene " + bien.toString() + " Bien y " + regular.toString() + " Regular. Sigue probando...";
-            canvas.fillText(texto,40,30+(30*intentos));
+            ctx.fillText(texto,40,30+(30*intentos));
         }
         //ahora la maquina intenta adivinar el numero
         document.getElementById('div4').style.display = 'none';
         document.getElementById('div5').style.display = 'block';
-        canvas = document.getElementById('adivinacionMaquina').getContext('2d');
-        canvas.fillText(intento_maquina.completo(),25,10);
+        canvas = document.getElementById('adivinacionMaquina');
+        ctx = canvas.getContext('2d');
+        ctx.fillText(intento_maquina.completo(),25,10);
     }
 }
 function SII (){
@@ -145,13 +132,16 @@ function SII (){
 function NOO (){
     document.getElementById('div5').style.display = 'none';
     document.getElementById('div6').style.display = 'block';
-
 }
+let pistas = [intento_maquina]; // el formato de la lista es  [numero,cantbien,cantmal;x
 function REGULAR_BIEN(){
-    document.getElementById('div6').style.display = 'none';
     let bien = document.getElementById('BIEN').value;
     let regular = document.getElementById('REGULAR').value;
+    if ()
     // aca va el algoritmo que hace que la maquina adivine el numero en base a los bien y a los regular
+        
+    document.getElementById('div6').style.display = 'none';
     document.getElementById('div1').style.display = 'block';
 }
+
 
