@@ -133,7 +133,7 @@ function obtener_num_intento_jugador(id) { //NO anda correctamente
         if(intento_jugador.num3 == computadora.num1 || intento_jugador.num3 == computadora.num2 || intento_jugador.num3 == computadora.num4)regular++;
         if(intento_jugador.num4 == computadora.num1 || intento_jugador.num4 == computadora.num2 || intento_jugador.num4 == computadora.num3)regular++;
         let texto;
-        if ( bien==4 ){
+        if ( bien==4 || intento_jugador.completo() == computadora.completo() ){
             texto = "Has adivinado el numero , pero la maquina todavia puede adivinar y asi empatar";
             adivino = 'SI';
         }else {
@@ -152,10 +152,7 @@ function obtener_num_intento_jugador(id) { //NO anda correctamente
     }
 }
 /**
- * obtener_num_intento_jugador :
- *      Obtiene el intento de adivinacion del jugador y ejecuta el codigo necesario para escribir respuestas en el canvas,
- *      oculta y muestra las diviciones con los mensajes necesarios para que el juego pueda seguir su curso
- * @param {string} id - lleva el id del imput donde se obtiene el num
+ * SII : ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón 'si'
  * @return
  */
 function SII (){
@@ -165,12 +162,22 @@ function SII (){
         window.open('gameover.html','_self');
     }
 }
-
+/**
+ * NOO : ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón 'no'
+ * @return
+ */
 function NOO (){
-    document.getElementById('div5').style.display = 'none';
-    document.getElementById('div6').style.display = 'block';
+    if (adivino == 'SI'){
+        window.open('you win.html','_self');
+    }else{
+        document.getElementById('div5').style.display = 'none';
+        document.getElementById('div6').style.display = 'block';
+    }
 }
-
+/**
+ * REGULAR_BIEN : ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón OK de la div6
+ * @return
+ */
 function REGULAR_BIEN(){
     let bien = document.getElementById('BIEN').value;
     let regular = document.getElementById('REGULAR').value;
@@ -204,11 +211,12 @@ function REGULAR_BIEN(){
             }
             aux = random(0,lista.length-1);
             aux = lista[aux];
-            intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]);
+            intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //este sera el proximo intento de la maquina
         }
         document.getElementById('div6').style.display = 'none';
         document.getElementById('div1').style.display = 'block';
     }
 }
 
-
+// asi como esta el juego debería andar correctamente
+// sin embargo hay lineas de codigo que no se ejecutan y no se puede jugar
