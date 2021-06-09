@@ -67,7 +67,7 @@ aux = lista[aux];
 let intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //numero de intento de adivinacion de la computadora creado;
 console.log(intento_maquina.completo());//para poder ver la lista en la consola
 let intento_jugador = new numero(0,0,0,0); //aca se guardara el intento del jugador
-let adivino = 'NO';
+let adivino = 'NO',intentos = 0;
 let canvas;
 /**
  * obtener_num_intento_jugador :
@@ -119,6 +119,7 @@ function obtener_num_intento_jugador(id) { //NO anda correctamente
         }
     }
     if (control==1){ //entra pero no ejecuta el contenido
+        intentos++;
         alert(control);// a modo de control, después lo saco // vemos que el flujo llego hasta aca pero no ejecuto el resto del código
         document.getElementById('div1').style.display = 'none';//no funciona
         document.getElementById('div4').style.display = 'block';//no funciona
