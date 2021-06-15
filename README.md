@@ -4,22 +4,22 @@ Estructura de Proyecto Lab de Compu II - 2021
 ## Autor
 * Gonzalo Gómez Pizarro.
 
-## Contenido / Descripcion del proyecto
+## Contenido / Descripción del proyecto
 
-* **Titulo del Proyecto:** Juego de Números.
-* **Tecnologias usadas:** HTML, CSS y JAVASCRIPT
-* **Contenido de la pagina:** La página contiene un juego de un solo jugador contra la máquina...
-* **Link para abrir las paginas (gh-pages):** [PAGINA PRINCIPAL](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/), [LOOSING PAGE](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/gameover.html) y [WINNING PAGE](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/you%20win.html) (con el uso de javascript haremos la conexión entre las paginas mostradas, por por el momento como el codigo no esta desarrollado, linkeamos algunas paginas, a traves de las cuales se puede llegar a todas las otras)
+* **Título del Proyecto:** Juego de Números.
+* **Tecnologías usadas:** HTML, CSS y JAVASCRIPT
+* **Contenido de la página:** La página contiene un juego de un solo jugador contra la máquina.
+* **Link para abrir la página (gh-pages):** [PAGINA PRINCIPAL](https://ucc-labcompu2.github.io/proyecto2021-gomezpizarro/)
 * [Link al mockup](https://app.uizard.io/p/qicZe4Dwx)
 
 
 ### Requisitos del Primer Parcial
 - [ ] El proyecto debe estar subido al repositorio adecuado "Proyecto2021-ApellidoAlumno1-ApellidoAlumno2"
 - [ ] La página principal debe llamarse index
-- [ ] En el ```<head></head>``` incluir las etiquetas ```<meta>``` detallando: autor, descripcion y palabras clave
+- [ ] En el ```<head></head>``` incluir las etiquetas ```<meta>``` detallando: autor, descripción y palabras clave
 - [ ] Emplear al menos 3 etiquetas semánticas
 - [ ] Emplear ```<header></header>```. En el contenido de la cabecera debe haber un título ```<h1></h1>```, puede tener color de fondo, algún logotipo, etc.
-- [ ] Modificar el Readme.MD y colocar información del proyecto/página (mínimamente: título del proyecto, autores, link de gh-pages, contenido de la página,  listado de tecnologías usadas, etc)
+- [ ] Modificar el README.md y colocar información del proyecto/página (mínimamente: título del proyecto, autores, link de gh-pages, contenido de la página,  listado de tecnologías usadas, etc)
 - [ ] Publicar la Web empleando GitHubPages
 - [ ] La estructura de la página debe estar definida con ```<div></div>```
 - [ ] Debe contener al menos 3 elementos de tipo ```<input>``` o ```<select>``` ó ```<button>``` que le permitan al usuario ingresar valores para poder realizar un cálculo de un ejercicio.
@@ -44,7 +44,7 @@ Accesibilidad:
 - [ ] Si hay una tabla en la página, debe contener ```<caption></caption>```
 
 ### Requisitos del Segundo Parcial
-- [ ] Presentación a tiempo del código mediante github (se corregirá el último commit subido a github antes del miercoles)
+- [ ] Presentación a tiempo del código mediante github (se corregirá el último commit subido a github antes del miércoles)
 - [ ] La página web debe contar con al menos un gráfico representativo realizado mediante canvas y que dependa de los datos ingresados en el ejercicio.
 - [ ] Se deben mostrar mensajes de error si el usuario ejecuta alguna acción inválida o no permitida.
 - [ ] El cálculo del ejercicio debe ser el correcto, independientemente de los valores ingresados (sino, tener en cuenta el mensaje de error)

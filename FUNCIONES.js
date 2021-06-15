@@ -1,5 +1,14 @@
+
+
+//En este archivo, Webstorm me advierte de varias 'Warnings'
+//En todos los casos se debe a la comparación del doble igual (==) en vez del triple igual (===)
+//Me advierte que esta comparación no va a distinguir entre el typo de las variables; distinción que no es necesaria
+//Por eso no la implemento
+//otras advertencias que me hace es por usar la declaración de variable con VAR en vez de con CONST o LET
+//Ignoramos también algunas advertencias de 'Typo'
+
 /**
- * Representa un numero de 4 digitos //aunque las encapsulaciones no enstan preparadas y se puede convertir en un numero mas grande
+ * Representa un numero de 4 dígitos //aunque las encapsulaciones no están preparadas y se puede convertir en un numero mas grande
  * @constructor
  * @param {Number} num1 //cifra 1
  * @param {Number} num2 //cifra 2
@@ -18,7 +27,8 @@ class numero {
     }
 }
 /**
- * random : devuelve un numero random entre limites establecidos
+ * Devuelve un numero random entre limites establecidos
+ * @method random
  * @param {Number} max - limite superior
  * @param {Number} min - limite inferior
  * @return {Number} random entero
@@ -28,7 +38,7 @@ function random (min, max){
     return (Math.round(num));
 }
 
-//crearemos una lista con todas las posibilidades de numeros de 4 cifras distintas;
+//crearemos una lista con todas las posibilidades de números de 4 cifras distintas;
 var lista = ["0123"];
 var i=124;
 while (i<10000){
@@ -40,39 +50,39 @@ while (i<10000){
     i=parseInt(i);
     i++;
 }
-//lista de numeros posibles creada;
+//lista de números posibles creada;
 console.log(lista); //para poder ver la lista en la consola
 // creamos el numero de la maquina
 var aux = random(0,5039);
 aux = lista[aux];
 var computadora = new numero(aux[0],aux[1],aux[2],aux[3]);
 //numero de la computadora creado;
-console.log(computadora.completo());//para poder ver la lista en la consola
+console.log(computadora.completo());//para poder ver la lista en la consola (NO VALE HACER TRAMPA)
 
 // ahora tenemos que crear el algoritmo para que la maquina adivine el numero
 //también tenemos que obtener el intento de adivinación del jugador
 aux = random(0,5039);
 aux = lista[aux];
-var intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //numero de intento de adivinacion de la computadora creado;
+var intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //numero de intento de adivinación de la computadora creado;
 var intento_jugador = new numero(0,0,0,0); //aca se guardara el intento del jugador
 var adivino = 'NO',intentos = 0;
 var canvas;
 /**
- * obtener_num_intento_jugador :
- *      Obtiene el intento de adivinacion del jugador y ejecuta el codigo necesario para escribir respuestas en el canvas,
- *      oculta y muestra las diviciones con los mensajes necesarios para que el juego pueda seguir su curso
- * @param {string} id - lleva el id del imput donde se obtiene el num
+ * Obtiene el intento de adivinación del jugador y ejecuta el código necesario para escribir respuestas en el canvas,
+ * muestra alerts con los mensajes necesarios para que el juego pueda seguir su curso
+ * @method obtener_num_intento_jugador
+ * @param {string} id - lleva el id del Imput donde se obtiene el num
  * @return
  */
 function obtener_num_intento_jugador(id) {
     console.log(intento_maquina.completo());//para poder el intento de la maquina en consola
     var num = document.getElementById(id).value;
-    num=num.toString(); // para poder valuar que sea de 4 cifras
+    num = String(num); // para poder valuar que sea de 4 cifras
     var control = 0;
     canvas = document.getElementById('comentarios');
     var ctx = canvas.getContext('2d'); //preparamos el canvas
     if ( num.length != 4){
-       alert ("EL NUMERO DEBE CONTENER 4 CIFRAS - Ingreselo de nuevo");
+       alert ("EL NUMERO DEBE CONTENER 4 CIFRAS - Ingréselo de nuevo");
     }else{
         var aux1,aux2,aux3,aux4;
         aux1=num[0];
@@ -80,7 +90,7 @@ function obtener_num_intento_jugador(id) {
         aux3=num[2];
         aux4=num[3];
         if ( aux1==aux2 || aux1==aux3 || aux1==aux4 || aux2==aux3 || aux2==aux4 || aux3==aux4 ){
-            alert("RECURDE QUE NO SE DEBEN REPETIR CIFRAS");
+            alert("RECUERDE QUE NO SE DEBEN REPETIR CIFRAS");
         }else{
             intento_jugador.num1 = Number(aux1);
             intento_jugador.num2 = Number(aux2);
@@ -106,10 +116,10 @@ function obtener_num_intento_jugador(id) {
         if (intento_jugador.num4 == computadora.num1 || intento_jugador.num4 == computadora.num2 || intento_jugador.num4 == computadora.num3) regular++;
         let texto;
         if (bien == 4 || intento_jugador.completo() == computadora.completo()) {
-            texto = "Has adivinado el numero , pero la maquina todavia puede adivinar y asi empatar";
+            texto = "Has adivinado el numero , pero la maquina todavía puede adivinar y asi empatar";
             adivino = 'SI';
         } else {
-            texto = "Intento " + intentos.toString() + "= " + intento_jugador.completo() + ": Tiene " + bien.toString() + " Bien y " + regular.toString() + " Regular. Sigue probando...";
+            texto = "Intento " + String(intentos) + "= " + intento_jugador.completo() + ": Tiene " + String(bien) + " Bien y " + String(regular) + " Regular. Sigue probando...";
         }
         ctx.font="bold italic 20px arial";
         ctx.fillStyle = "brown";
@@ -118,11 +128,11 @@ function obtener_num_intento_jugador(id) {
             aux = String (aux);
             document.getElementById('comentarios').style.height = aux;
         }
-        ctx.fillText("TUS INTENTOS", 40, 40 );
+        ctx.fillText("TUS INTENTOS:", 40, 40 );
         ctx.fillText(texto, 40, 40 + (30 * intentos));
         document.getElementById('div5').style.display = 'block';
         document.getElementById('si_no').style.display = 'block';
-        canvas = document.getElementById('adivinacionMaquina');
+        canvas = document.getElementById('adivinaciónMaquina');
         ctx = canvas.getContext('2d');
         ctx.fillStyle = "brown";
         ctx.font="bold italic 35px arial";
@@ -130,8 +140,10 @@ function obtener_num_intento_jugador(id) {
         ctx.fillText(intento_maquina.completo(), 20, 40);//aca escribe
     }
 }
+
 /**
- * SII : ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón 'si'
+ * Ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón 'si'
+ * @method SII
  * @return
  */
 function SII (){
@@ -141,8 +153,10 @@ function SII (){
         window.open('gameover.html','_self');
     }
 }
+
 /**
- * NOO : ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón 'no'
+ * Ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón 'no'
+ * @method NOO
  * @return
  */
 function NOO (){
@@ -152,13 +166,13 @@ function NOO (){
     }else{
         document.getElementById('div6').style.display = 'block';
     }
-
 }
+
 /**
- * REGULAR_BIEN : ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón OK de la div6
+ * Ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón OK de la div6
+ * @method REGULAR_BIEN
  * @return
  */
-
 function REGULAR_BIEN(){
     let bien = document.getElementById('BIEN').value;
     let regular = document.getElementById('REGULAR').value;
@@ -180,34 +194,30 @@ function REGULAR_BIEN(){
             //la lista de posibilidades se encuentra en string
             for (let i=0 ; i<lista.length ;i++) {
                 let cuenta_bien = 0 , cuenta_regular = 0;
-                if(intento_maquina.num1 === lista[i][0])cuenta_bien++;
-                if(intento_maquina.num2 === lista[i][1])cuenta_bien++;
-                if(intento_maquina.num3 === lista[i][2])cuenta_bien++;
-                if(intento_maquina.num4 === lista[i][3])cuenta_bien++;
-                if(intento_maquina.num1 === lista[i][1] || intento_maquina.num1 === lista[i][2] || intento_maquina.num1 === lista[i][3])cuenta_regular++;
-                if(intento_maquina.num2 === lista[i][0] || intento_maquina.num2 === lista[i][2] || intento_maquina.num2 === lista[i][3])cuenta_regular++;
-                if(intento_maquina.num3 === lista[i][0] || intento_maquina.num3 === lista[i][1] || intento_maquina.num3 === lista[i][3])cuenta_regular++;
-                if(intento_maquina.num4 === lista[i][0] || intento_maquina.num4 === lista[i][1] || intento_maquina.num4 === lista[i][2])cuenta_regular++;
+                if(intento_maquina.num1 == lista[i][0])cuenta_bien++;
+                if(intento_maquina.num2 == lista[i][1])cuenta_bien++;
+                if(intento_maquina.num3 == lista[i][2])cuenta_bien++;
+                if(intento_maquina.num4 == lista[i][3])cuenta_bien++;
+                if(intento_maquina.num1 == lista[i][1] || intento_maquina.num1 == lista[i][2] || intento_maquina.num1 == lista[i][3])cuenta_regular++;
+                if(intento_maquina.num2 == lista[i][0] || intento_maquina.num2 == lista[i][2] || intento_maquina.num2 == lista[i][3])cuenta_regular++;
+                if(intento_maquina.num3 == lista[i][0] || intento_maquina.num3 == lista[i][1] || intento_maquina.num3 == lista[i][3])cuenta_regular++;
+                if(intento_maquina.num4 == lista[i][0] || intento_maquina.num4 == lista[i][1] || intento_maquina.num4 == lista[i][2])cuenta_regular++;
                 if (cuenta_bien != bien || cuenta_regular != regular){
                     lista.splice(i,1);
                     i--;
                 }
             }
         }
-
         if (lista.length==0){
             alert("TU NUMERO NO EXISTE - revisa que estes empleando bien la cantidad de BIEN y REGULAR que indicas")
             window.open('gameover.html','_self');
         }
         aux = random(0,lista.length-1);
         aux = lista[aux];
-        intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //este sera el proximo intento de la maquina
+        intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //este sera el próximo intento de la maquina
         document.getElementById('div5').style.display = 'none';
         document.getElementById('div6').style.display = 'none';
         document.getElementById('div1').style.display = 'block';
+        console.log(lista); //para poder ver la lista en la consola
     }
-    console.log(lista); //para poder ver la lista en la consola
 }
-
-// asi como esta el juego debería andar correctamente
-// sin embargo hay lineas de codigo que no se ejecutan y no se puede jugar

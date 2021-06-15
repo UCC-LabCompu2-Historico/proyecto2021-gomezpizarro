@@ -1,9 +1,15 @@
 #start{
     padding-top: 3%;
 }
-.cargar{
+#cargar {
     background-image: url(Imagenes/LOADING.gif);
-    /* no usocover por que pierde calidad la imagen y por que queda mejor repetido */
+    /* no uso cover por que pierde calidad la imagen y por que queda mejor repetido, aca la cuestión ya se debe al gusto */
+    /* Sin embargo a continuación dejo el código (comentado) que hace el que el gif no se repita */
+
+    /*
+    background-repeat: no-repeat;
+    background-size: cover;
+    */
 }
 body{ 
     font-family: 'Press Start 2P','Zen Dots', cursive;
@@ -12,7 +18,7 @@ body{
     text-align: center;
 }
 #indexbody{
-    padding-top: 5%;
+    padding-top: 10%;
     padding-bottom: 15%;
     font-size: 20px;
 }
@@ -28,7 +34,7 @@ a:hover{
 }
 #Instrucciones{
     font-family: 'Zen Dots','Press Start 2P', cursive;
-    padding-top: 5%;
+    padding-top: 10%;
     padding-bottom: 15%;
 }
 .caja{
@@ -58,8 +64,8 @@ input{
     font-family:'Press Start 2P','Zen Dots',cursive  ;
 }
 .endgame{
-    padding: 2%;
-    padding-bottom: 99%;
+    padding: 2%; /* No entiendo la advertencia que me da aca el inspect code*/
+    padding-bottom: 99%; /* No entiendo la advertencia que me da aca el inspect code*/
     font-size: 30px;
 }
 #wiin{
@@ -75,10 +81,6 @@ input{
 }
 #A1{
     padding-top: 2%;
-}
-#J1{
-    padding-top: 2%; 
-    padding-bottom: 2%;
 }
 #L1{
     padding-top: 2%; padding-bottom: 2%;
@@ -96,7 +98,7 @@ input{
     padding-right: 2%;
     padding-top: 2%;
     background-color: black;
-    border: 0px;
+    border: 0px; /* IS NOT REDUNDANT, sino se ve el borde del botón */
     font-size: 20px;
     font-family: 'Press Start 2P','Zen Dots',cursive ;
 }
