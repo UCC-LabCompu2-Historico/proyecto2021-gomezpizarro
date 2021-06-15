@@ -114,8 +114,9 @@ function obtener_num_intento_jugador(id) {
         ctx.font="bold italic 20px arial";
         ctx.fillStyle = "brown";
         if ( intentos>12 ){
-
-            document.getElementById('comentarios').style.height = 500 + (30*(intentos-12));
+            aux = 500 + (30*(intentos-12));
+            aux = String (aux);
+            document.getElementById('comentarios').style.height = aux;
         }
         ctx.fillText("TUS INTENTOS", 40, 40 );
         ctx.fillText(texto, 40, 40 + (30 * intentos));
@@ -151,6 +152,7 @@ function NOO (){
     }else{
         document.getElementById('div6').style.display = 'block';
     }
+
 }
 /**
  * REGULAR_BIEN : ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón OK de la div6
@@ -168,6 +170,8 @@ function REGULAR_BIEN(){
             alert("LA SUMA DE BIEN + MAL NO PUEDE SER > A 4")
         }
         else{
+            bien = String (bien);
+            regular = String (regular);
             // aca va el algoritmo que hace que la maquina adivine el numero en base a los bien y a los regular
             intento_maquina.num1 = String(intento_maquina.num1);
             intento_maquina.num2 = String(intento_maquina.num2);
@@ -186,6 +190,7 @@ function REGULAR_BIEN(){
                 if(intento_maquina.num4 === lista[i][0] || intento_maquina.num4 === lista[i][1] || intento_maquina.num4 === lista[i][2])cuenta_regular++;
                 if (cuenta_bien != bien || cuenta_regular != regular){
                     lista.splice(i,1);
+                    i--;
                 }
             }
         }
@@ -201,6 +206,7 @@ function REGULAR_BIEN(){
         document.getElementById('div6').style.display = 'none';
         document.getElementById('div1').style.display = 'block';
     }
+    console.log(lista); //para poder ver la lista en la consola
 }
 
 // asi como esta el juego debería andar correctamente
