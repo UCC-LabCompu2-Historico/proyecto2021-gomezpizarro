@@ -22,46 +22,34 @@
             <form id="ADIVINAR" target="_self">
                 <p id="L2"><label for="intento_jugador">Numero</label>
                 <input type="number" id="intento_jugador">
-                <button class="OK" onclick="obtener_num_intento_jugador('intento_jugador')" >OK</button></p>
+                <button  type="button" class="OK" onclick="obtener_num_intento_jugador('intento_jugador')" >OK</button></p>
             </form>
-        </div>
-        <div id="div2" class="oculto">
-            <p>RECUERDE QUE EL NUMERO DEBE TENER 4 CIFRAS</p>
-        </div>
-        <div id="div3" class="oculto">
-            <p>RECURDE QUE NO SE DEBEN REPETIR CIFRAS</p>
-        </div>
-        <div id="div4" class="oculto">
-            <p>INTENTO RECIBIDO</p>
         </div>
         <div id="div5" class="oculto">
             <p class="pregunta">¿ES ESTE TU NUMERO?</p>
             <p>
-                <canvas id="adivinacionMaquina" width="200" height="60">
+                <canvas id="adivinacionMaquina" width="120" height="60">
                     El navegador no soporta canvas
                 </canvas>
             </p>
-            <P>
-                <button class="OK" id="SI" onclick="SII()">SI</button>
-                <button class="OK" id="NO" onclick="NOO()">NO</button>
+            <P id="si_no">
+                <button type="button" class="OK" id="SI"  onclick="SII()">SI</button>
+                <button type="button" class="OK" id="NO" onclick="NOO()">NO</button>
             </P>
         </div>
         <div id="div6" class="oculto">
             <p class="pregunta">INGRESA LA CANTIDAD DE BIEN Y LA CANTIDAD DE REGULAR</p>
             <form id="Bien_regular" target="_self">
                 <p><label for="BIEN">BIEN</label>
-                    <input type="number" id="BIEN" max="4"></p>
+                    <input type="number" id="BIEN" max="4" min="0"></p>
                 <p><label for="REGULAR">REGULAR</label>
-                    <input type="number" id="REGULAR" max="4"></p>
-                <p><button class="OK" onclick="REGULAR_BIEN()">OK</button></p>
+                    <input type="number" id="REGULAR" max="4" min="0"></p>
+                <p><button type="button" class="OK" onclick="REGULAR_BIEN()">OK</button></p>
             </form>
-        </div>
-        <div id="div7" class="oculto" >
-            <p>La cantidad de bien + regular no puede ser mayor a 4</p>
         </div>
         <div id="canvas">
             <!-- En el canvas ira quedando el resgistro del juego y de los numeros que ira intentando adivinar el jugador -->
-            <canvas id="comentarios" width="800" height="500">
+            <canvas id="comentarios" width="840" height="500">
                 El navegador no soporta canvas
             </canvas>
         </div>
