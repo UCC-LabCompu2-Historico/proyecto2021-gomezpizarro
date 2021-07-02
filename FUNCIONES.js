@@ -66,7 +66,7 @@ aux = lista[aux];
 var intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //numero de intento de adivinación de la computadora creado;
 var intento_jugador = new numero(0,0,0,0); //aca se guardara el intento del jugador
 var adivino = 'NO',intentos = 0;
-var canvas;
+var canvas, ctx;
 /**
  * Obtiene el intento de adivinación del jugador y ejecuta el código necesario para escribir respuestas en el canvas,
  * muestra alerts con los mensajes necesarios para que el juego pueda seguir su curso
@@ -80,7 +80,7 @@ function obtener_num_intento_jugador(id) {
     num = String(num); // para poder valuar que sea de 4 cifras
     var control = 0;
     canvas = document.getElementById('comentarios');
-    var ctx = canvas.getContext('2d'); //preparamos el canvas
+    ctx = canvas.getContext('2d'); //preparamos el canvas
     if ( num.length != 4){
        alert ("EL NUMERO DEBE CONTENER 4 CIFRAS - Ingréselo de nuevo");
     }else{
@@ -116,28 +116,28 @@ function obtener_num_intento_jugador(id) {
         if (intento_jugador.num4 == computadora.num1 || intento_jugador.num4 == computadora.num2 || intento_jugador.num4 == computadora.num3) regular++;
         let texto;
         if (bien == 4 || intento_jugador.completo() == computadora.completo()) {
+            intentos=intentos+1;
             texto = "Has adivinado el numero , pero la maquina todavía puede adivinar y asi empatar";
             adivino = 'SI';
         } else {
             texto = "Intento " + String(intentos) + "= " + intento_jugador.completo() + ": Tiene " + String(bien) + " Bien y " + String(regular) + " Regular. Sigue probando...";
         }
-        ctx.font="bold italic 20px arial";
+        ctx.beginPath();
+        ctx.font="bold italic 15px arial";
         ctx.fillStyle = "brown";
-        if ( intentos>12 ){
-            aux = 500 + (30*(intentos-12));
-            aux = String (aux);
-            document.getElementById('comentarios').style.height = aux;
-        }
-        ctx.fillText("TUS INTENTOS:", 40, 40 );
-        ctx.fillText(texto, 40, 40 + (30 * intentos));
+        ctx.fillText("TUS INTENTOS:", 20, 30 );
+        ctx.fillText(texto, 20, 30 + (20 * intentos));
+        ctx.closePath();
         document.getElementById('div5').style.display = 'block';
         document.getElementById('si_no').style.display = 'block';
         canvas = document.getElementById('adivinaciónMaquina');
+        ctx.beginPath();
         ctx = canvas.getContext('2d');
         ctx.fillStyle = "brown";
         ctx.font="bold italic 35px arial";
         ctx.clearRect(20, 5, 150, 50);//para borrar
         ctx.fillText(intento_maquina.completo(), 20, 40);//aca escribe
+        ctx.closePath();
     }
 }
 
@@ -168,6 +168,7 @@ function NOO (){
     }
 }
 
+var intentosMaquina = 0;
 /**
  * Ejecuta las lineas de código necesarias para continuar con el juego, tras apretar el botón OK de la div6
  * @method REGULAR_BIEN
@@ -177,47 +178,61 @@ function REGULAR_BIEN(){
     let bien = document.getElementById('BIEN').value;
     let regular = document.getElementById('REGULAR').value;
     let suma = Number(bien) + Number(regular) ;
-    if ( bien<0 || regular<0){
-        alert ("NO SE PUEDEN INGRESAR NUMERO NEGATIVOS")
+    canvas = document.getElementById('comentarios');
+    ctx = canvas.getContext('2d'); //preparamos el canvas
+    if ( isNaN(bien) || isNaN(regular) ){
+        alert ("INGRESE UNICAMENTE NUMEROS - corrija los valores");
     }else{
-        if (suma>4){
-            alert("LA SUMA DE BIEN + MAL NO PUEDE SER > A 4")
-        }
-        else{
-            bien = String (bien);
-            regular = String (regular);
-            // aca va el algoritmo que hace que la maquina adivine el numero en base a los bien y a los regular
-            intento_maquina.num1 = String(intento_maquina.num1);
-            intento_maquina.num2 = String(intento_maquina.num2);
-            intento_maquina.num3 = String(intento_maquina.num3);
-            intento_maquina.num4 = String(intento_maquina.num4);
-            //la lista de posibilidades se encuentra en string
-            for (let i=0 ; i<lista.length ;i++) {
-                let cuenta_bien = 0 , cuenta_regular = 0;
-                if(intento_maquina.num1 == lista[i][0])cuenta_bien++;
-                if(intento_maquina.num2 == lista[i][1])cuenta_bien++;
-                if(intento_maquina.num3 == lista[i][2])cuenta_bien++;
-                if(intento_maquina.num4 == lista[i][3])cuenta_bien++;
-                if(intento_maquina.num1 == lista[i][1] || intento_maquina.num1 == lista[i][2] || intento_maquina.num1 == lista[i][3])cuenta_regular++;
-                if(intento_maquina.num2 == lista[i][0] || intento_maquina.num2 == lista[i][2] || intento_maquina.num2 == lista[i][3])cuenta_regular++;
-                if(intento_maquina.num3 == lista[i][0] || intento_maquina.num3 == lista[i][1] || intento_maquina.num3 == lista[i][3])cuenta_regular++;
-                if(intento_maquina.num4 == lista[i][0] || intento_maquina.num4 == lista[i][1] || intento_maquina.num4 == lista[i][2])cuenta_regular++;
-                if (cuenta_bien != bien || cuenta_regular != regular){
-                    lista.splice(i,1);
-                    i--;
+        if ( bien<0 || regular<0){
+            alert ("NO SE PUEDEN INGRESAR NUMERO NEGATIVOS - corrija los valores");
+        }else {
+            if (suma > 4) {
+                alert("LA SUMA DE BIEN + MAL NO PUEDE SER > A 4 - corrija los valores");
+            } else {
+                intentosMaquina++;
+                texto = "Intento " + String(intentosMaquina) + "= " + intento_maquina.completo() + ": Tiene " + String(bien) + " Bien y " + String(regular) + " Regular.";
+                ctx.beginPath();
+                ctx.font="bold italic 15px arial";
+                ctx.fillStyle = "brown";
+                ctx.fillText("INTENTOS DE LA MAQUINA:", 500, 30 );
+                ctx.fillText(texto, 500, 30 + (20 * intentosMaquina));
+                ctx.closePath();
+                bien = String(bien);
+                regular = String(regular);
+                // aca va el algoritmo que hace que la maquina adivine el numero en base a los bien y a los regular
+                intento_maquina.num1 = String(intento_maquina.num1);
+                intento_maquina.num2 = String(intento_maquina.num2);
+                intento_maquina.num3 = String(intento_maquina.num3);
+                intento_maquina.num4 = String(intento_maquina.num4);
+                //la lista de posibilidades se encuentra en string
+                for (let i = 0; i < lista.length; i++) {
+                    let cuenta_bien = 0, cuenta_regular = 0;
+                    if (intento_maquina.num1 == lista[i][0]) cuenta_bien++;
+                    if (intento_maquina.num2 == lista[i][1]) cuenta_bien++;
+                    if (intento_maquina.num3 == lista[i][2]) cuenta_bien++;
+                    if (intento_maquina.num4 == lista[i][3]) cuenta_bien++;
+                    if (intento_maquina.num1 == lista[i][1] || intento_maquina.num1 == lista[i][2] || intento_maquina.num1 == lista[i][3]) cuenta_regular++;
+                    if (intento_maquina.num2 == lista[i][0] || intento_maquina.num2 == lista[i][2] || intento_maquina.num2 == lista[i][3]) cuenta_regular++;
+                    if (intento_maquina.num3 == lista[i][0] || intento_maquina.num3 == lista[i][1] || intento_maquina.num3 == lista[i][3]) cuenta_regular++;
+                    if (intento_maquina.num4 == lista[i][0] || intento_maquina.num4 == lista[i][1] || intento_maquina.num4 == lista[i][2]) cuenta_regular++;
+                    if (cuenta_bien != bien || cuenta_regular != regular) {
+                        lista.splice(i, 1);
+                        i--;
+                    }
                 }
+                if (lista.length == 0) {
+                    alert("TU NUMERO NO EXISTE - revisa que estes empleando bien la cantidad de BIEN y REGULAR que indicas")
+                    window.open('gameover.html', '_self');
+                }
+
+                aux = random(0, lista.length - 1);
+                aux = lista[aux];
+                intento_maquina = new numero(aux[0], aux[1], aux[2], aux[3]); //este sera el próximo intento de la maquina
+                document.getElementById('div5').style.display = 'none';
+                document.getElementById('div6').style.display = 'none';
+                document.getElementById('div1').style.display = 'block';
+                console.log(lista); //para poder ver la lista en la consola
             }
         }
-        if (lista.length==0){
-            alert("TU NUMERO NO EXISTE - revisa que estes empleando bien la cantidad de BIEN y REGULAR que indicas")
-            window.open('gameover.html','_self');
-        }
-        aux = random(0,lista.length-1);
-        aux = lista[aux];
-        intento_maquina = new numero(aux[0],aux[1],aux[2],aux[3]); //este sera el próximo intento de la maquina
-        document.getElementById('div5').style.display = 'none';
-        document.getElementById('div6').style.display = 'none';
-        document.getElementById('div1').style.display = 'block';
-        console.log(lista); //para poder ver la lista en la consola
     }
 }
