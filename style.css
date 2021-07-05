@@ -116,4 +116,11 @@ canvas{
 }
 #div6{
     padding-top: 2%;
+} 
+#body_gameover{
+    text-align: center;
+    background-color: white;
+}
+#animacion{
+    background-color: white;
 }

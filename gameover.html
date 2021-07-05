@@ -13,9 +13,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
         
+        <script type="text/javascript" src="carga.js"></script>
+
         <title> Juego de números / gameover </title>
     </head>
-    <body>
+    <body id="body_gameover" onload="persona()">
+        <canvas id="animacion" width="800" height="800">
+            El navegador no soporta canvas
+        </canvas> 
+        <br>
         <img src="Imagenes/gameeover.jpg" alt="gameover" id="looser">
         <div class="endgame">
             <a href="Loading.html">Play Again?</a>
