@@ -16,12 +16,22 @@ function abrir_web (){
 async function  esperar (){
     setTimeout(abrir_web,7500);
 }
-var x=0;
-function continuar (){
-    x=x+2
-}
+var y=0;
 /**
- * Espera 7.5s y ejecuta la función abrir web
+ * Detiene el flujo del programa por la cantidad de milisegundos que se mandan como argumento
+ * @method delay
+ * @param milliseconds
+ * @return
+ */
+ function delay(milliseconds){
+    var start = new Date().getTime();
+    var end=0;
+    while( (end-start) < milliseconds){
+        end = new Date().getTime();
+    }
+   }
+/**
+ * Ejecuta la animacion de la persona cayendo al vacio
  * @method persona
  * @return
  */
@@ -32,9 +42,11 @@ function persona(){
     imagen.src = 'Imagenes/caida.jpeg';
 
     imagen.onload = function () {
-        for (let i=0 ; i<50 ; i++ ){
-            setTimeout(continuar,1);
-            ctx.drawImage (imagen,x,200);    
+        for (var i=0 ; i<50 ; i++){
+            delay(500);
+            alert (y);
+            ctx.drawImage (imagen,200,y);
+            y=y+1;    
         }
     }
 }
