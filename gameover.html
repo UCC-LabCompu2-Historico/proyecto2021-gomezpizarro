@@ -14,11 +14,19 @@
         <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
         
         <title> Juego de números / gameover </title>
+        <script type="text/javascript" src="gameover.js"></script>
     </head>
-    <body>
-        <img src="Imagenes/gameeover.jpg" alt="gameover" id="looser">
-        <div class="endgame">
-            <a href="Loading.html">Play Again?</a>
-        </div>    
+    <body onload="setInterval(animar,100)" id="gameoverbody">
+        <div>
+            <canvas id="animación" width="1000" height="1000">
+                El navegador no soporta canvas
+            </canvas>
+        </div>
+        <div class="oculto" id="gameoverdiv">
+            <img src="Imagenes/gameeover.jpg" alt="gameover" id="looser">
+            <div class="endgame">
+                <a href="Loading.html">Play Again?</a>
+            </div>
+        </div>
     </body>
 </html>
