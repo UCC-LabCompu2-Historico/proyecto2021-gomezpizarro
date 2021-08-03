@@ -123,3 +123,8 @@ canvas{
 #gameoverbody{
     background-color: white;
 }
+@media (min-height: 1000px) and (orientation: portrait) {
+    #animación{
+        height: 2000px;
+    }
+}

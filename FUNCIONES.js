@@ -187,7 +187,7 @@ function REGULAR_BIEN(){
             alert ("NO SE PUEDEN INGRESAR NUMERO NEGATIVOS - corrija los valores");
         }else {
             if (suma > 4) {
-                alert("LA SUMA DE BIEN + MAL NO PUEDE SER > A 4 - corrija los valores");
+                alert("LA SUMA DE BIEN + REGULAR NO PUEDE SER > A 4 - corrija los valores");
             } else {
                 intentosMaquina++;
                 texto = "Intento " + String(intentosMaquina) + "= " + intento_maquina.completo() + ": Tiene " + String(bien) + " Bien y " + String(regular) + " Regular.";
