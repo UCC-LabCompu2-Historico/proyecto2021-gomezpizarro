@@ -1,9 +1,6 @@
 /**
- * Obtiene el intento de adivinación del jugador y ejecuta el código necesario para escribir respuestas en el canvas,
- * muestra alerts con los mensajes necesarios para que el juego pueda seguir su curso
+ * Realiza la animacion de GAMEOVER del juego
  * @method animar
- * @param {string} id - lleva el id del Imput donde se obtiene el num
- * @return
  */
 var y=0;
 function animar () {

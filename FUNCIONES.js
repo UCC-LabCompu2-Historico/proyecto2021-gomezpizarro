@@ -44,19 +44,21 @@ var i=124;
 while (i<10000){
     i=i.toString();
     if (i.length == 3) i = '0'+ i;
-    if(!/(.).*\1/.test(i)){
+    if(!/(.).*\1/.test(i)){ // esta expresion testea si el caracter no esta repetido...
         lista.push(i);
     }
     i=parseInt(i);
     i++;
 }
 //lista de números posibles creada;
+console.log(" -> Lista de posibles numeros: ")
 console.log(lista); //para poder ver la lista en la consola
 // creamos el numero de la maquina
 var aux = random(0,5039);
 aux = lista[aux];
 var computadora = new numero(aux[0],aux[1],aux[2],aux[3]);
 //numero de la computadora creado;
+console.log(" -> Numero de la computadora: ")
 console.log(computadora.completo());//para poder ver la lista en la consola (NO VALE HACER TRAMPA)
 
 // ahora tenemos que crear el algoritmo para que la maquina adivine el numero
@@ -75,6 +77,8 @@ var canvas, ctx;
  * @return
  */
 function obtener_num_intento_jugador(id) {
+
+    console.log(" -> Intento de la computadora: ")
     console.log(intento_maquina.completo());//para poder el intento de la maquina en consola
     var num = document.getElementById(id).value;
     num = String(num); // para poder valuar que sea de 4 cifras
@@ -97,7 +101,6 @@ function obtener_num_intento_jugador(id) {
             intento_jugador.num3 = Number(aux3);
             intento_jugador.num4 = Number(aux4);
             control++;
-            console.log(intento_jugador.completo());//para verlo en inspeccionar
         }
     }
     if (control==1) {
@@ -105,7 +108,6 @@ function obtener_num_intento_jugador(id) {
         alert("INTENTO RECIBIDO");
         document.getElementById('div1').style.display = 'none';
         var bien = 0, regular = 0;
-        document.getElementById('canvas').style.display = 'block';
         if (intento_jugador.num1 == computadora.num1) bien++;
         if (intento_jugador.num2 == computadora.num2) bien++;
         if (intento_jugador.num3 == computadora.num3) bien++;
@@ -231,6 +233,8 @@ function REGULAR_BIEN(){
                 document.getElementById('div5').style.display = 'none';
                 document.getElementById('div6').style.display = 'none';
                 document.getElementById('div1').style.display = 'block';
+
+                console.log(" -> Posibles numeros del jugador: ")
                 console.log(lista); //para poder ver la lista en la consola
             }
         }
